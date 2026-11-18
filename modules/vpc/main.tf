@@ -4,7 +4,7 @@ module "vpc" {
   name = "${var.project}-${var.environment}-vpc"
   cidr = var.vpc_id
 
-  azs              = ["$(var.region)a", "$(var.region)b", "$(var.region)c"]
+  azs              = ["${var.region}a", "${var.region}b", "${var.region}c"]
   private_subnets  = var.private_subnet_ids
   public_subnets   = var.public_subnet_ids
   database_subnets = var.db_subnet_ids
