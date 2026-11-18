@@ -22,7 +22,7 @@ module "eks" {
   source = "../../modules/eks"
 
   project            = local.project
-  environment        = local.environment
+  env                = local.environment
   vpc_id             = module.vpc.vpc_id
   subnet_ids         = module.vpc.private_subnets
   kubernetes_version = "1.33"
