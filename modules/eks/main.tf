@@ -3,7 +3,7 @@ module "eks" {
   version = "~> 21.0"
 
   name               = "${var.project}-${var.env}-cluster"
-  kubernetes_version = "$(var.kubernetes_version)"
+  kubernetes_version = var.kubernetes_version
 
   vpc_id     = var.vpc_id
   subnet_ids = var.subnet_ids
