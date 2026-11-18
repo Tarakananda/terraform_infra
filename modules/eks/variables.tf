@@ -31,7 +31,7 @@ variable "kubernetes_version" {
 
 variable "instance_type" {
   description = "The EC2 instance type for the EKS worker nodes"
-  type        = string
+  type        = list(string)
 
 }
 
