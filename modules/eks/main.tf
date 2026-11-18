@@ -2,7 +2,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 21.0"
 
-  name               = "$(var.project)-$(var.environment)-cluster"
+  name               = "$(var.project)-$(var.env)-cluster"
   kubernetes_version = "$(var.kubernetes_version)"
 
   vpc_id     = var.vpc_id
@@ -35,6 +35,6 @@ module "eks" {
 
   tags = {
     Project = var.project
-    Env     = var.environment
+    Env     = var.env
   }
 }
