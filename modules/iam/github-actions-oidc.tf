@@ -10,20 +10,8 @@
 #   3. AWS validates the token against the registered OIDC provider and
 #      issues temporary STS credentials (valid for 1 hour max)
 
-resource "aws_iam_openid_connect_provider" "github_actions" {
+data "aws_iam_openid_connect_provider" "github_actions" {
   url = "https://token.actions.githubusercontent.com"
-
-  client_id_list = ["sts.amazonaws.com"]
-
-  thumbprint_list = [
-    "6938fd4d98bab03faadb97b34396831e3780aea1",
-    "1c58a3a8518e8759bf075b76b750d4f2df264fcd",
-  ]
-
-  tags = {
-    Name    = "github-actions-oidc-provider"
-    Project = var.project
-  }
 }
 
 data "aws_iam_policy_document" "github_actions_assume_role" {
@@ -33,7 +21,7 @@ data "aws_iam_policy_document" "github_actions_assume_role" {
 
     principals {
       type        = "Federated"
-      identifiers = [aws_iam_openid_connect_provider.github_actions.arn]
+      identifiers = [data.aws_iam_openid_connect_provider.github_actions.arn]
     }
 
     condition {
