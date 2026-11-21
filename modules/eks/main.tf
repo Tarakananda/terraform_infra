@@ -39,7 +39,7 @@ module "eks" {
       kubernetes_version             = var.node_group_kubernetes_version
       ami_type                       = var.ami_type
       ami_release_version            = var.ami_release_version
-      use_latest_ami_release_version = var.use_latest_ami_release_version
+      use_latest_ami_release_version = var.use_latest_ami_release_version == null
       instance_types                 = var.instance_type
       min_size                       = var.min_size
       max_size                       = var.max_size
