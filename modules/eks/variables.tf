@@ -35,11 +35,6 @@ variable "node_group_kubernetes_version" {
 
 }
 
-variable "node_group_kubernetes_version" {
-  description = "The version of the EKS cluster"
-  type        = string
-
-}
 
 variable "vpc_cni_version" {
   description = "The version of the Amazon VPC CNI plugin for Kubernetes"
