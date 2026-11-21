@@ -67,18 +67,18 @@ def prompt(var_name, label, example, default=""):
 # Deploy order matters for the backend group (dependencies first).
 # ---------------------------------------------------------------------------
 FRONTEND = [
-    ("pharma-ui",             "zen-pharma-frontend", "ci-pharma-ui.yml"),
+    ("pharma-ui",             "dockerfiles", "ci-pharma-ui.yml"),
 ]
 
 BACKEND = [
-    ("auth-service",          "zen-pharma-backend",  "ci-auth-service.yml"),
-    ("drug-catalog-service",  "zen-pharma-backend",  "ci-drug-catalog.yml"),
-    ("inventory-service",     "zen-pharma-backend",  "ci-inventory-service.yml"),
-    ("supplier-service",      "zen-pharma-backend",  "ci-supplier-service.yml"),
-    ("manufacturing-service", "zen-pharma-backend",  "ci-manufacturing-service.yml"),
-    ("notification-service",  "zen-pharma-backend",  "ci-notification.yml"),
-    ("qc-service",            "zen-pharma-backend",  "ci-qc-service.yml"),
-    ("api-gateway",           "zen-pharma-backend",  "ci-api-gateway.yml"),
+    ("auth-service",          "microservices",  "ci-auth-service.yml"),
+    ("drug-catalog-service",  "microservices",  "ci-drug-catalog.yml"),
+    ("inventory-service",     "microservices",  "ci-inventory-service.yml"),
+    ("supplier-service",      "microservices",  "ci-supplier-service.yml"),
+    ("manufacturing-service", "microservices",  "ci-manufacturing-service.yml"),
+    ("notification-service",  "microservices",  "ci-notification.yml"),
+    ("qc-service",            "microservices",  "ci-qc-service.yml"),
+    ("api-gateway",           "microservices",  "ci-api-gateway.yml"),
 ]
 
 ALL_SERVICES = FRONTEND + BACKEND
