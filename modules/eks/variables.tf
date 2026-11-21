@@ -48,7 +48,7 @@ variable "kube_proxy_version" {
 
 }
 
-variable "codedns_version" {
+variable "coredns_version" {
   description = "The version of the CoreDNS component"
   type        = string
 
@@ -63,8 +63,7 @@ variable "pod_identity_agent_version" {
 variable "ami_type" {
   description = "The AMI type for the EKS worker nodes"
   type        = string
-  default     = "t3.small"
-
+  default     = "ami-0593d733c2fc5bd2e"
 }
 
 variable "ami_release_version" {

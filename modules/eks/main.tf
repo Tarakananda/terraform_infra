@@ -17,20 +17,20 @@ module "eks" {
   addons = {
     vpc-cni = {
       addon_version  = var.vpc_cni_version
-      most_recent    = vpc_cni_version == null
+      most_recent    = var.vpc_cni_version == null
       before_compute = true
     }
     kube-proxy = {
       addon_version = var.kube_proxy_version
-      most_recent   = kube_proxy_version == null
+      most_recent   = var.kube_proxy_version == null
     }
     coredns = {
-      addon_version = var.codedns_version
-      most_recent   = coredns_version == null
+      addon_version = var.coredns_version
+      most_recent   = var.coredns_version == null
     }
     eks-pod-identity-agent = {
       addon_version = var.pod_identity_agent_version
-      most_recent   = pod_identity_agent_version == null
+      most_recent   = var.pod_identity_agent_version == null
     }
   }
 
