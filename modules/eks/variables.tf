@@ -25,7 +25,43 @@ variable "subnet_ids" {
 variable "kubernetes_version" {
   description = "The version of the EKS cluster"
   type        = string
-  default     = "1.33"
+  default     = "1.34"
+
+}
+
+variable "node_group_kubernetes_version" {
+  description = "The version of the EKS cluster"
+  type        = string
+
+}
+
+variable "node_group_kubernetes_version" {
+  description = "The version of the EKS cluster"
+  type        = string
+
+}
+
+variable "vpc_cni_version" {
+  description = "The version of the Amazon VPC CNI plugin for Kubernetes"
+  type        = string
+
+}
+
+variable "kube_proxy_version" {
+  description = "The version of the kube-proxy component"
+  type        = string
+
+}
+
+variable "codedns_version" {
+  description = "The version of the CoreDNS component"
+  type        = string
+
+}
+
+variable "pod_identity_agent_version" {
+  description = "The version of the AWS IAM Authenticator for Kubernetes"
+  type        = string
 
 }
 
