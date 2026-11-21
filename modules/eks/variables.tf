@@ -63,13 +63,12 @@ variable "pod_identity_agent_version" {
 variable "ami_type" {
   description = "The AMI type for the EKS worker nodes"
   type        = string
-  default     = "ami-0593d733c2fc5bd2e"
+  default     = "AL2023_x86_64_STANDARD"
 }
 
 variable "ami_release_version" {
   description = "The AMI release version for the EKS worker nodes"
   type        = string
-  default     = "1.34.0-20230915"
 
 }
 
