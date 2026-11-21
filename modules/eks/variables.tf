@@ -65,6 +65,26 @@ variable "pod_identity_agent_version" {
 
 }
 
+variable "ami_type" {
+  description = "The AMI type for the EKS worker nodes"
+  type        = string
+  default     = "t3.small"
+
+}
+
+variable "ami_release_version" {
+  description = "The AMI release version for the EKS worker nodes"
+  type        = string
+  default     = "1.34.0-20230915"
+
+}
+
+variable "use_latest_ami_release_version" {
+  description = "Whether to use the latest AMI release version for the EKS worker nodes"
+  type        = bool
+
+}
+
 variable "instance_type" {
   description = "The EC2 instance type for the EKS worker nodes"
   type        = list(string)

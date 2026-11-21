@@ -16,26 +16,34 @@ module "eks" {
 
   addons = {
     vpc-cni = {
-      most_recent    = true
+      addon_version  = var.vpc_cni_version
+      most_recent    = vpc_cni_version == null
       before_compute = true
     }
-    kube-proxy             = { most_recent = true }
-    coredns                = { most_recent = true }
-    eks-pod-identity-agent = { most_recent = true }
+    kube-proxy = {
+      addon_version = var.kube_proxy_version
+      most_recent   = kube_proxy_version == null
+    }
+    coredns = {
+      addon_version = var.codedns_version
+      most_recent   = coredns_version == null
+    }
+    eks-pod-identity-agent = {
+      addon_version = var.pod_identity_agent_version
+      most_recent   = pod_identity_agent_version == null
+    }
   }
 
   eks_managed_node_groups = {
     main = {
-      kubernetes_version            = var.kubernetes_version
-      node_group_kubernetes_version = var.node_group_kubernetes_version
-      coredns_version               = var.codedns_version
-      kube_proxy_version            = var.kube_proxy_version
-      vpc_cni_version               = var.vpc_cni_version
-      pod_identity_agent_version    = var.pod_identity_agent_version
-      instance_types                = var.instance_type
-      min_size                      = var.min_size
-      max_size                      = var.max_size
-      desired_size                  = var.desired_size
+      kubernetes_version             = var.node_group_kubernetes_version
+      ami_type                       = var.ami_type
+      ami_release_version            = var.ami_release_version
+      use_latest_ami_release_version = var.use_latest_ami_release_version
+      instance_types                 = var.instance_type
+      min_size                       = var.min_size
+      max_size                       = var.max_size
+      desired_size                   = var.desired_size
     }
   }
 
