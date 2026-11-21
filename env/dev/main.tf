@@ -27,11 +27,11 @@ module "eks" {
   subnet_ids                     = module.vpc.private_subnets
   kubernetes_version             = "1.34"
   node_group_kubernetes_version  = "1.34"
-  vpc_cni_version                = "1.22.0-eksbuild.1"
-  kube_proxy_version             = "1.35.0-eksbuild.1"
-  coredns_version                = "1.13.2-eksbuild.1"
+  vpc_cni_version                = null
+  kube_proxy_version             = null
+  coredns_version                = null
   pod_identity_agent_version     = "v1.3.10-eksbuild.3"
-  use_latest_ami_release_version = null
+  use_latest_ami_release_version = true
   instance_type                  = ["t3.small"]
   min_size                       = 1
   max_size                       = 3
